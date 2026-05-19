@@ -1,0 +1,15 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ajoutez ceci pour appliquer les polices */
+body {
+  font-family: 'Poppins', sans-serif; /* Pour le texte courant */
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: 'Playfair Display', serif; /* Pour les titres et les éléments marqués comme 'font-serif' */
+}

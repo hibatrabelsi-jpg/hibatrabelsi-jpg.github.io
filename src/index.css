@@ -1,0 +1,54 @@
+/* L'IMPORT CALENDLY DOIT ÊTRE LA LIGNE NUMÉRO 1 */
+@import url('https://assets.calendly.com/assets/external/widget.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Force la scrollbar à être toujours présente (même vide) pour éviter le décalage horizontal */
+  overflow-y: scroll;
+  /* Supprime le rebond élastique sur Mac qui peut faire saccader la transition */
+  overscroll-behavior-y: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* On enlève le height: 100% rigide pour laisser les transitions respirer */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+/* VIDÉO DE FOND */
+video {
+  display: block;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* On cache le badge flottant de Calendly pour garder ton design propre */
+.calendly-badge-widget {
+  display: none !important;
+}
