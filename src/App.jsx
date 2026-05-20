@@ -82,42 +82,56 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
-  const videoRef = useRef(null);
-  const overlayRef = useRef(null);
-  const fadingRef = useRef(false);
+  const videoA = useRef(null);
+  const videoB = useRef(null);
+  const active = useRef('a');
 
   useEffect(() => {
-    const video = videoRef.current;
-    const overlay = overlayRef.current;
-    if (!video || !overlay) return;
+    const a = videoA.current;
+    const b = videoB.current;
+    if (!a || !b) return;
 
-    const handleTimeUpdate = () => {
-      if (!video.duration || fadingRef.current) return;
-      if (video.currentTime < video.duration - 2) return;
+    const CROSSFADE = 0.5; // secondes
+    const TRIGGER = 1;
 
-      fadingRef.current = true;
-      overlay.style.opacity = '1';
+    const handle = (current, next) => {
+      if (!current.duration) return;
+      if (current.currentTime < current.duration - TRIGGER) return;
+      if (active.current !== (current === a ? 'a' : 'b')) return;
+
+      active.current = current === a ? 'b' : 'a';
+      next.currentTime = 0;
+      next.style.transition = 'none';
+      next.style.opacity = '0';
+      next.play();
 
       setTimeout(() => {
-        video.currentTime = 0;
-        video.play();
-        overlay.style.opacity = '0';
-        setTimeout(() => { fadingRef.current = false; }, 300);
-      }, 250);
+        next.style.transition = `opacity ${CROSSFADE}s ease`;
+        current.style.transition = `opacity ${CROSSFADE}s ease`;
+        next.style.opacity = '1';
+        current.style.opacity = '0';
+      }, 50);
     };
 
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
+    const onA = () => handle(a, b);
+    const onB = () => handle(b, a);
+    a.addEventListener('timeupdate', onA);
+    b.addEventListener('timeupdate', onB);
+    return () => { a.removeEventListener('timeupdate', onA); b.removeEventListener('timeupdate', onB); };
   }, []);
+
+  const vStyle = { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 };
 
   return (
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
-        <video ref={videoRef} autoPlay muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 }}>
+        <video ref={videoA} autoPlay muted playsInline style={{ ...vStyle, opacity: 1 }}>
           <source src="/videos/desert-sunset.mp4" type="video/mp4" />
         </video>
-        <div ref={overlayRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'linear-gradient(to bottom, #1a0800, #7a2e00, #c4621a, #e8943a)', opacity: 0, zIndex: 0, pointerEvents: 'none', transition: 'opacity 0.2s ease' }} />
+        <video ref={videoB} muted playsInline style={{ ...vStyle, opacity: 0 }}>
+          <source src="/videos/desert-sunset.mp4" type="video/mp4" />
+        </video>
         <AnimatedRoutes />
       </div>
     </Router>
