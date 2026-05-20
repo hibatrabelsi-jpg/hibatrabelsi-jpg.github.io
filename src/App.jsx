@@ -82,62 +82,59 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
-  const videoA = useRef(null);
-  const videoB = useRef(null);
-  const active = useRef('a');
+  const videoRef = useRef(null);
+  const overlayRef = useRef(null);
+  const fadingRef = useRef(false);
 
   useEffect(() => {
-    const a = videoA.current;
-    const b = videoB.current;
-    if (!a || !b) return;
+    const video = videoRef.current;
+    const overlay = overlayRef.current;
+    if (!video || !overlay) return;
 
-    const FADE_DURATION = 3;   // secondes de crossfade
-    const CROSSFADE_START = 4; // commence le crossfade 4s avant la fin
+    const FADE_OUT = 1.5; // durée fondu vers noir (s)
+    const FADE_IN  = 1.5; // durée fondu retour (s)
+    const TRIGGER  = 3;   // secondes avant la fin pour déclencher
 
-    const handleTimeUpdate = (current, next) => {
-      if (!current.duration) return;
-      const remaining = current.duration - current.currentTime;
+    const handleTimeUpdate = () => {
+      if (!video.duration || fadingRef.current) return;
+      if (video.currentTime < video.duration - TRIGGER) return;
 
-      if (remaining <= CROSSFADE_START && active.current === (current === a ? 'a' : 'b')) {
-        active.current = current === a ? 'b' : 'a';
-        next.currentTime = 0;
-        next.style.opacity = '0';
-        next.play();
+      fadingRef.current = true;
 
-        const start = performance.now();
-        const fade = (now) => {
-          const t = Math.min((now - start) / (FADE_DURATION * 1000), 1);
-          next.style.opacity = t;
-          current.style.opacity = 1 - t;
-          if (t < 1) requestAnimationFrame(fade);
-        };
-        requestAnimationFrame(fade);
-      }
+      // Fondu vers noir
+      const fadeOut = (start, now) => {
+        const t = Math.min((now - start) / (FADE_OUT * 1000), 1);
+        overlay.style.opacity = t;
+        if (t < 1) { requestAnimationFrame(n => fadeOut(start, n)); }
+        else {
+          // Vidéo repart depuis le début
+          video.currentTime = 0;
+          video.play();
+          // Fondu retour
+          const fadeIn = (start2, now2) => {
+            const t2 = Math.min((now2 - start2) / (FADE_IN * 1000), 1);
+            overlay.style.opacity = 1 - t2;
+            if (t2 < 1) { requestAnimationFrame(n => fadeIn(start2, n)); }
+            else { fadingRef.current = false; }
+          };
+          requestAnimationFrame(n => fadeIn(n, n));
+        }
+      };
+      requestAnimationFrame(n => fadeOut(n, n));
     };
 
-    const onTimeUpdateA = () => handleTimeUpdate(a, b);
-    const onTimeUpdateB = () => handleTimeUpdate(b, a);
-
-    a.addEventListener('timeupdate', onTimeUpdateA);
-    b.addEventListener('timeupdate', onTimeUpdateB);
-    return () => {
-      a.removeEventListener('timeupdate', onTimeUpdateA);
-      b.removeEventListener('timeupdate', onTimeUpdateB);
-    };
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
   }, []);
-
-  const videoStyle = { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1, transition: 'none' };
 
   return (
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
-        <video ref={videoA} autoPlay muted playsInline style={{ ...videoStyle, opacity: 1 }}>
+        <video ref={videoRef} autoPlay muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 }}>
           <source src="/videos/desert-sunset.mp4" type="video/mp4" />
         </video>
-        <video ref={videoB} muted playsInline style={{ ...videoStyle, opacity: 0 }}>
-          <source src="/videos/desert-sunset.mp4" type="video/mp4" />
-        </video>
+        <div ref={overlayRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'black', opacity: 0, zIndex: -1, pointerEvents: 'none' }} />
         <AnimatedRoutes />
       </div>
     </Router>
