@@ -91,8 +91,8 @@ export default function App() {
     const b = videoB.current;
     if (!a || !b) return;
 
-    const FADE_DURATION = 1.5; // secondes de crossfade
-    const CROSSFADE_START = 2;  // commence le crossfade 2s avant la fin
+    const FADE_DURATION = 3;   // secondes de crossfade
+    const CROSSFADE_START = 4; // commence le crossfade 4s avant la fin
 
     const handleTimeUpdate = (current, next) => {
       if (!current.duration) return;
