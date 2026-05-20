@@ -91,36 +91,19 @@ export default function App() {
     const overlay = overlayRef.current;
     if (!video || !overlay) return;
 
-    const FADE_OUT = 1.5; // durée fondu vers noir (s)
-    const FADE_IN  = 1.5; // durée fondu retour (s)
-    const TRIGGER  = 3;   // secondes avant la fin pour déclencher
-
     const handleTimeUpdate = () => {
       if (!video.duration || fadingRef.current) return;
-      if (video.currentTime < video.duration - TRIGGER) return;
+      if (video.currentTime < video.duration - 2) return;
 
       fadingRef.current = true;
+      overlay.style.opacity = '1'; // fondu vers noir (CSS transition 0.8s)
 
-      // Fondu vers noir
-      const fadeOut = (start, now) => {
-        const t = Math.min((now - start) / (FADE_OUT * 1000), 1);
-        overlay.style.opacity = t;
-        if (t < 1) { requestAnimationFrame(n => fadeOut(start, n)); }
-        else {
-          // Vidéo repart depuis le début
-          video.currentTime = 0;
-          video.play();
-          // Fondu retour
-          const fadeIn = (start2, now2) => {
-            const t2 = Math.min((now2 - start2) / (FADE_IN * 1000), 1);
-            overlay.style.opacity = 1 - t2;
-            if (t2 < 1) { requestAnimationFrame(n => fadeIn(start2, n)); }
-            else { fadingRef.current = false; }
-          };
-          requestAnimationFrame(n => fadeIn(n, n));
-        }
-      };
-      requestAnimationFrame(n => fadeOut(n, n));
+      setTimeout(() => {
+        video.currentTime = 0;
+        video.play();
+        overlay.style.opacity = '0'; // retour lumière (CSS transition 0.8s)
+        setTimeout(() => { fadingRef.current = false; }, 900);
+      }, 900);
     };
 
     video.addEventListener('timeupdate', handleTimeUpdate);
@@ -134,7 +117,7 @@ export default function App() {
         <video ref={videoRef} autoPlay muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 }}>
           <source src="/videos/desert-sunset.mp4" type="video/mp4" />
         </video>
-        <div ref={overlayRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'black', opacity: 0, zIndex: -1, pointerEvents: 'none' }} />
+        <div ref={overlayRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'black', opacity: 0, zIndex: 0, pointerEvents: 'none', transition: 'opacity 0.8s ease' }} />
         <AnimatedRoutes />
       </div>
     </Router>
