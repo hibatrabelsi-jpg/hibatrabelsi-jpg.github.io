@@ -24,28 +24,28 @@ const detailsFormules = {
     prix: "109",
     description: "Idéal pour garder la main sur ses réservations tout en ayant un expert à ses côtés.",
     inclusions: ["Recherche d’activités", "Sélection d’adresses", "Optimisation du temps", "SAV"],
-    lienStripe: "#"
+    lienStripe: "https://buy.stripe.com/dRm9ALfDO5PU6zvcwgf3a03"
   },
   "evasion-express": {
     titre: "Évasion Express",
     prix: "139",
     description: "Parfait pour un week-end ou city trip de 2 nuits.",
     inclusions: ["Transport & Hébergement", "Activités", "Recommandations", "SAV"],
-    lienStripe: "#"
+    lienStripe: "https://buy.stripe.com/00waEP3V6guy6zv8g0f3a01"
   },
   "sejour-serenite": {
     titre: "Séjour Sérénité",
     prix: "239",
     description: "Organisation complète pour les séjours de 4 à 8 nuits.",
     inclusions: ["Transports A/R", "Hébergement & Activités", "Carte interactive", "Carnet digital", "SAV"],
-    lienStripe: "#"
+    lienStripe: "https://buy.stripe.com/6oU6oz2R2ceif61fIsf3a02"
   },
   "grand-voyageur": {
     titre: "Grand Voyageur",
     prix: "339",
     description: "Pour les itinéraires ambitieux ou à plusieurs étapes.",
     inclusions: ["Itinéraire structuré", "Logistique totale", "Pépites locales", "Carnet digital", "Paiement en 2x"],
-    lienStripe: "#"
+    lienStripe: "https://buy.stripe.com/8x2fZ93V69261fbcwgf3a00"
   }
 };
 
