@@ -96,14 +96,14 @@ export default function App() {
       if (video.currentTime < video.duration - 2) return;
 
       fadingRef.current = true;
-      overlay.style.opacity = '1'; // fondu vers noir (CSS transition 0.8s)
+      overlay.style.opacity = '1';
 
       setTimeout(() => {
         video.currentTime = 0;
         video.play();
-        overlay.style.opacity = '0'; // retour lumière (CSS transition 0.8s)
-        setTimeout(() => { fadingRef.current = false; }, 900);
-      }, 900);
+        overlay.style.opacity = '0';
+        setTimeout(() => { fadingRef.current = false; }, 500);
+      }, 500);
     };
 
     video.addEventListener('timeupdate', handleTimeUpdate);
@@ -117,7 +117,7 @@ export default function App() {
         <video ref={videoRef} autoPlay muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 }}>
           <source src="/videos/desert-sunset.mp4" type="video/mp4" />
         </video>
-        <div ref={overlayRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'black', opacity: 0, zIndex: 0, pointerEvents: 'none', transition: 'opacity 0.8s ease' }} />
+        <div ref={overlayRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'linear-gradient(to bottom, #1a0800, #7a2e00, #c4621a, #e8943a)', opacity: 0, zIndex: 0, pointerEvents: 'none', transition: 'opacity 0.4s ease' }} />
         <AnimatedRoutes />
       </div>
     </Router>
