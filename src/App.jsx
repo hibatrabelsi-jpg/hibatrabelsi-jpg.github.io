@@ -82,26 +82,60 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
-  const videoRef = useRef(null);
+  const videoA = useRef(null);
+  const videoB = useRef(null);
+  const active = useRef('a');
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const handleTimeUpdate = () => {
-      if (video.duration && video.currentTime > video.duration - 0.3) {
-        video.currentTime = 0;
-        video.play();
+    const a = videoA.current;
+    const b = videoB.current;
+    if (!a || !b) return;
+
+    const FADE_DURATION = 1.5; // secondes de crossfade
+    const CROSSFADE_START = 2;  // commence le crossfade 2s avant la fin
+
+    const handleTimeUpdate = (current, next) => {
+      if (!current.duration) return;
+      const remaining = current.duration - current.currentTime;
+
+      if (remaining <= CROSSFADE_START && active.current === (current === a ? 'a' : 'b')) {
+        active.current = current === a ? 'b' : 'a';
+        next.currentTime = 0;
+        next.style.opacity = '0';
+        next.play();
+
+        const start = performance.now();
+        const fade = (now) => {
+          const t = Math.min((now - start) / (FADE_DURATION * 1000), 1);
+          next.style.opacity = t;
+          current.style.opacity = 1 - t;
+          if (t < 1) requestAnimationFrame(fade);
+        };
+        requestAnimationFrame(fade);
       }
     };
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
+
+    const onTimeUpdateA = () => handleTimeUpdate(a, b);
+    const onTimeUpdateB = () => handleTimeUpdate(b, a);
+
+    a.addEventListener('timeupdate', onTimeUpdateA);
+    b.addEventListener('timeupdate', onTimeUpdateB);
+    return () => {
+      a.removeEventListener('timeupdate', onTimeUpdateA);
+      b.removeEventListener('timeupdate', onTimeUpdateB);
+    };
   }, []);
+
+  const videoStyle = { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1, transition: 'none' };
 
   return (
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
-        <video ref={videoRef} autoPlay muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 }}>
+        <video ref={videoA} autoPlay muted playsInline style={{ ...videoStyle, opacity: 1 }}>
+          <source src="/videos/desert-sunset.mp4" type="video/mp4" />
+        </video>
+        <video ref={videoB} muted playsInline style={{ ...videoStyle, opacity: 0 }}>
           <source src="/videos/desert-sunset.mp4" type="video/mp4" />
         </video>
         <AnimatedRoutes />
