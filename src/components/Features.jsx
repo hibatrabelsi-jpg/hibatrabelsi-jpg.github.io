@@ -99,8 +99,9 @@ export default function Features() {
               ))}
             </ul>
 
-            <Link 
-              to={f.special ? "/#contact" : `/formule/${f.id}`} 
+            <Link
+              to={f.special ? "/" : `/formule/${f.id}`}
+              onClick={f.special ? (e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); } : undefined}
               style={{ textDecoration: 'none', marginTop: '30px' }}
             >
               <button style={{ 
