@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
 import FormuleDetail from "./components/FormuleDetail";
 import BusinessPage from "./components/BusinessPage";
+import ChatBot from "./components/ChatBot";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -133,6 +134,7 @@ export default function App() {
           <source src="/videos/desert-sunset.mp4" type="video/mp4" />
         </video>
         <AnimatedRoutes />
+        <ChatBot />
       </div>
     </Router>
   );
