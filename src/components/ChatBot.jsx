@@ -159,10 +159,10 @@ export default function ChatBot() {
           border: "none", cursor: "pointer",
           boxShadow: "0 4px 20px rgba(246,222,205,0.4)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: "22px",
+          fontSize: "28px", fontWeight: "bold", color: "white",
         }}
       >
-        {open ? "✕" : "✈️"}
+        {open ? "✕" : "?"}
       </motion.button>
 
       {/* Fenêtre du chatbot */}
