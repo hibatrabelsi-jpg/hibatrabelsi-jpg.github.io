@@ -153,7 +153,7 @@ export default function ChatBot() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         style={{
-          position: "fixed", bottom: "24px", left: "24px", zIndex: 1000,
+          position: "fixed", bottom: "24px", right: "24px", zIndex: 1000,
           width: "56px", height: "56px", borderRadius: "50%",
           background: "linear-gradient(135deg, #f6decd, #e5b181)",
           border: "none", cursor: "pointer",
@@ -162,7 +162,7 @@ export default function ChatBot() {
           fontSize: "22px",
         }}
       >
-        {open ? "✕" : "✨"}
+        {open ? "✕" : "✈️"}
       </motion.button>
 
       {/* Fenêtre du chatbot */}
@@ -174,7 +174,7 @@ export default function ChatBot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25 }}
             style={{
-              position: "fixed", bottom: "92px", left: "24px", zIndex: 1000,
+              position: "fixed", bottom: "92px", right: "24px", zIndex: 1000,
               width: "min(340px, calc(100vw - 48px))",
               maxHeight: "520px",
               background: "rgba(10, 6, 4, 0.88)",
