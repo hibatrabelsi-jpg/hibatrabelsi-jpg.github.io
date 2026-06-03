@@ -30,15 +30,15 @@ export default function Testimonials() {
           Vos <span style={{ fontStyle: 'italic', color: '#f6decd' }}>Expériences</span>
         </h2>
         
-        <p style={{ 
-          color: '#f6decd', 
-          letterSpacing: '3px', 
-          fontSize: '16px', 
+        <p style={{
+          color: '#f6decd',
+          letterSpacing: '3px',
+          fontSize: '16px',
           fontWeight: 'bold',
           marginTop: '15px',
-          textShadow: '2px 2px 10px rgba(0,0,0,1)' 
+          textShadow: '2px 2px 10px rgba(0,0,0,1)'
         }}>
-          ⭐⭐⭐⭐⭐ PLUS DE 10 AVIS GOOGLE
+          • • • • • PLUS DE 10 AVIS GOOGLE
         </p>
       </div>
 
