@@ -127,11 +127,11 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
-        <video ref={videoA} autoPlay muted playsInline style={{ ...vStyle, opacity: 1 }}>
-          <source src="/videos/desert-sunset.mp4" type="video/mp4" />
+        <video ref={videoA} autoPlay muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
+          <source src="/videos/desert-sunset.mp4" type="video/mp4;codecs=avc1.42E01E" />
         </video>
-        <video ref={videoB} muted playsInline style={{ ...vStyle, opacity: 0 }}>
-          <source src="/videos/desert-sunset.mp4" type="video/mp4" />
+        <video ref={videoB} muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 0 }}>
+          <source src="/videos/desert-sunset.mp4" type="video/mp4;codecs=avc1.42E01E" />
         </video>
         <AnimatedRoutes />
         <ChatBot />
