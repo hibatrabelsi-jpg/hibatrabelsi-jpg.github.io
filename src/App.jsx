@@ -4,12 +4,13 @@ import { useEffect, useRef } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Features from "./components/Features";
-import B2B from "./components/B2B"; 
+import B2B from "./components/B2B";
 import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
 import FormuleDetail from "./components/FormuleDetail";
 import BusinessPage from "./components/BusinessPage";
 import ChatBot from "./components/ChatBot";
+import SEO from "./components/SEO";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -59,9 +60,15 @@ function AnimatedRoutes() {
         
         <Route path="/" element={
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
+            <SEO
+              title="Hiba Travel Planner — L'Évasion Redéfinie"
+              description="Organisation de voyages sur mesure pour particuliers et entreprises. Séjours sérénité, week-ends express, grands voyages ou projets sur mesure. Hiba planifie vos rêves."
+              keywords="voyage sur mesure, travel planner, organisation voyage, séjour vacances, weekend trip, agence voyage"
+              url="https://hibatravel.com"
+            />
             <Hero />
             <Features />
-            <B2B /> 
+            <B2B />
             <Testimonials />
             <About />
             <Contact />
@@ -70,6 +77,12 @@ function AnimatedRoutes() {
 
         <Route path="/business" element={
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }}>
+            <SEO
+              title="Hiba Travel Planner B2B — Voyages d'entreprise sur mesure"
+              description="Solutions de voyages d'entreprise, séminaires et incentives. Hiba organise les déplacements professionnels et événements d'équipe pour maximiser l'impact et le bien-être."
+              keywords="voyage entreprise, séminaire, incentive, voyage B2B, team building"
+              url="https://hibatravel.com/business"
+            />
             <BusinessPage />
           </motion.div>
         } />
@@ -86,6 +99,18 @@ export default function App() {
   const videoA = useRef(null);
   const videoB = useRef(null);
   const active = useRef('a');
+
+  // Détecter Safari et utiliser la vidéo appropriée
+  const isSafari = () => {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  };
+
+  const getVideoSrc = () => {
+    // Safari a besoin d'une version spécifique avec le bon codec
+    return isSafari() ? '/videos/desert-sunset-safari-fixed.mp4' : '/videos/desert-sunset-optimized.mp4';
+  };
+
+  const videoSrc = getVideoSrc();
 
   useEffect(() => {
     const a = videoA.current;
@@ -104,7 +129,9 @@ export default function App() {
       next.currentTime = 0;
       next.style.transition = 'none';
       next.style.opacity = '0';
-      next.play();
+      next.play().catch(() => {
+        // Ignorer les erreurs de lecture automatique (certains navigateurs/contextes)
+      });
 
       setTimeout(() => {
         next.style.transition = `opacity ${CROSSFADE}s ease`;
@@ -118,7 +145,11 @@ export default function App() {
     const onB = () => handle(b, a);
     a.addEventListener('timeupdate', onA);
     b.addEventListener('timeupdate', onB);
-    return () => { a.removeEventListener('timeupdate', onA); b.removeEventListener('timeupdate', onB); };
+
+    return () => {
+      a.removeEventListener('timeupdate', onA);
+      b.removeEventListener('timeupdate', onB);
+    };
   }, []);
 
   const vStyle = { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 };
@@ -127,11 +158,13 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
-        <video ref={videoA} autoPlay muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
-          <source src="/videos/desert-sunset.mp4" type="video/mp4;codecs=avc1.42E01E" />
+        <video ref={videoA} autoPlay muted playsInline preload="auto" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
+          {!isSafari() && <source src="/videos/desert-sunset-optimized.webm" type="video/webm" />}
+          <source src={videoSrc} type="video/mp4" />
         </video>
-        <video ref={videoB} muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 0 }}>
-          <source src="/videos/desert-sunset.mp4" type="video/mp4;codecs=avc1.42E01E" />
+        <video ref={videoB} muted playsInline preload="auto" webkit-playsinline style={{ ...vStyle, opacity: 0 }}>
+          {!isSafari() && <source src="/videos/desert-sunset-optimized.webm" type="video/webm" />}
+          <source src={videoSrc} type="video/mp4" />
         </video>
         <AnimatedRoutes />
         <ChatBot />

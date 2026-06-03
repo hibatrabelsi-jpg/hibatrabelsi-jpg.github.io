@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useAnalytics, ANALYTICS_EVENTS } from "../hooks/useAnalytics";
 
 const formules = [
   { 
@@ -36,6 +37,15 @@ const formules = [
 ];
 
 export default function Features() {
+  const { trackEvent } = useAnalytics();
+
+  const handleFormuleClick = (formuleId, formuleName) => {
+    trackEvent(ANALYTICS_EVENTS.FORMULE_SELECTED, {
+      formule_id: formuleId,
+      formule_name: formuleName
+    });
+  };
+
   const cardStyle = {
     background: "linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%)",
     backdropFilter: "blur(25px)",
@@ -101,7 +111,14 @@ export default function Features() {
 
             <Link
               to={f.special ? "/" : `/formule/${f.id}`}
-              onClick={f.special ? (e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); } : undefined}
+              onClick={(e) => {
+                if (f.special) {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  handleFormuleClick(f.id, f.nom);
+                }
+              }}
               style={{ textDecoration: 'none', marginTop: '30px' }}
             >
               <button style={{ 

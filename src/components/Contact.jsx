@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useAnalytics, ANALYTICS_EVENTS } from "../hooks/useAnalytics";
 
 export default function Contact() {
   const [status, setStatus] = useState("");
+  const { trackEvent } = useAnalytics();
 
   // Chargement du script Calendly pour l'effet Popup
   useEffect(() => {
@@ -54,15 +56,35 @@ export default function Contact() {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
+    const formEmail = data.get('email');
+    const formName = data.get('name');
+
     try {
       const response = await fetch("https://formspree.io/f/mpqylnld", {
         method: "POST",
         body: data,
         headers: { 'Accept': 'application/json' }
       });
-      if (response.ok) { setStatus("SUCCESS"); form.reset(); } 
-      else { setStatus("ERROR"); }
-    } catch { setStatus("ERROR"); }
+      if (response.ok) {
+        setStatus("SUCCESS");
+        form.reset();
+        // Track successful form submission
+        trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT, {
+          email: formEmail,
+          status: 'success'
+        });
+      } else {
+        setStatus("ERROR");
+        trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_ERROR, {
+          error: 'form_submission_failed'
+        });
+      }
+    } catch (error) {
+      setStatus("ERROR");
+      trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_ERROR, {
+        error: error.message || 'unknown_error'
+      });
+    }
   };
 
   return (

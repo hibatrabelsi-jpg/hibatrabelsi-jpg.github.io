@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
+import { useAnalytics, ANALYTICS_EVENTS } from "../hooks/useAnalytics";
 
 export default function Testimonials() {
+  const { trackEvent } = useAnalytics();
+
+  const handleGoogleReviewsClick = () => {
+    trackEvent(ANALYTICS_EVENTS.GOOGLE_REVIEWS_CLICKED);
+  };
   const reviews = [
     "anthony.png", "christophe.png", "erwan.png", "jocelyne.png", 
     "juliette.png", "karim.png", "loriana.png", "nour.png", 
@@ -69,11 +75,12 @@ export default function Testimonials() {
 
       {/* BOUTON D'ACTION AVEC TON LIEN GOOGLE */}
       <div style={{ textAlign: 'center' }}>
-        <a 
-          href="https://share.google/6DaRbm9cP8OphM6nb" 
-          target="_blank" 
+        <a
+          href="https://share.google/6DaRbm9cP8OphM6nb"
+          target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'none' }}
+          onClick={handleGoogleReviewsClick}
         >
           <motion.button 
             whileHover={{ 

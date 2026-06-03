@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useAnalytics, ANALYTICS_EVENTS } from "../hooks/useAnalytics";
 
 const FLOWS = {
   start: {
@@ -97,14 +98,16 @@ export default function ChatBot() {
   const [started, setStarted] = useState(false);
   const bottomRef = useRef(null);
   const navigate = useNavigate();
+  const { trackEvent } = useAnalytics();
 
   useEffect(() => {
     if (open && !started) {
       setStarted(true);
       setMessages([{ from: "bot", text: FLOWS.start.bot }]);
       setCurrentFlow("start");
+      trackEvent(ANALYTICS_EVENTS.CHATBOT_OPEN);
     }
-  }, [open, started]);
+  }, [open, started, trackEvent]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -113,7 +116,17 @@ export default function ChatBot() {
   const handleOption = (option) => {
     setMessages((prev) => [...prev, { from: "user", text: option.label }]);
 
+    // Track chaque sélection d'option
+    trackEvent(ANALYTICS_EVENTS.CHATBOT_FLOW_SELECTED, {
+      flow_name: currentFlow,
+      option_label: option.label,
+      action_type: option.action || 'flow_navigation'
+    });
+
     if (option.action === "formule") {
+      trackEvent(ANALYTICS_EVENTS.CHATBOT_FORMULE_RECOMMENDED, {
+        formule_id: option.id
+      });
       setTimeout(() => {
         setOpen(false);
         navigate(`/formule/${option.id}`);

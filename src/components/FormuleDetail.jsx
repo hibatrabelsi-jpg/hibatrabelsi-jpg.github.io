@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "./SEO";
 
 export default function FormuleDetail({ titre, prix, description, inclusions, lienStripe }) {
+  const formuleId = titre.toLowerCase().replace(/\s+/g, '-');
   const containerStyle = {
     minHeight: "100vh",
     display: "flex",
@@ -27,7 +29,15 @@ export default function FormuleDetail({ titre, prix, description, inclusions, li
   };
 
   return (
-    <div style={containerStyle}>
+    <>
+      <SEO
+        title={`${titre} - Hiba Travel Planner`}
+        description={description}
+        keywords={`${titre}, voyage, ${prix}`}
+        url={`https://hibatravel.com/formule/${formuleId}`}
+        type="Product"
+      />
+      <div style={containerStyle}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -105,5 +115,6 @@ export default function FormuleDetail({ titre, prix, description, inclusions, li
         </a>
       </motion.div>
     </div>
+    </>
   );
 }
