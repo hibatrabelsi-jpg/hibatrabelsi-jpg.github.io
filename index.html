@@ -21,6 +21,10 @@
       }(window.location));
     </script>
 
+    <!-- Preconnect à Calendly pour optimiser la connexion -->
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+
     <!-- Google Analytics GA4 -->
     <!-- ÉTAPE : Remplace G-XXXXXXXXXX par ton vrai Measurement ID depuis analytics.google.com -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W134W84J8"></script>
@@ -30,6 +34,9 @@
       gtag('js', new Date());
       gtag('config', 'G-6W134W84J8');
     </script>
+
+    <!-- Calendly Widget Script (async defer pour ne pas bloquer le chargement) -->
+    <script async defer src="https://assets.calendly.com/assets/external/widget.js"></script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,16 +1,18 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, lazy, Suspense } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Features from "./components/Features";
 import B2B from "./components/B2B";
-import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
 import FormuleDetail from "./components/FormuleDetail";
 import BusinessPage from "./components/BusinessPage";
 import ChatBot from "./components/ChatBot";
 import SEO from "./components/SEO";
+
+// Lazy-load Contact component pour optimiser les performances
+const Contact = lazy(() => import("./components/Contact"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -71,7 +73,9 @@ function AnimatedRoutes() {
             <B2B />
             <Testimonials />
             <About />
-            <Contact />
+            <Suspense fallback={<div style={{ height: '600px' }} />}>
+              <Contact />
+            </Suspense>
           </motion.div>
         } />
 
@@ -117,6 +121,9 @@ export default function App() {
     const b = videoB.current;
     if (!a || !b) return;
 
+    // Les vidéos se chargent avec preload="metadata" (optimal)
+    // Les crossfades se déclenchent automatiquement via timeupdate events
+
     const CROSSFADE = 0.5; // secondes
     const TRIGGER = 1;
 
@@ -152,12 +159,23 @@ export default function App() {
     };
   }, []);
 
-  const vStyle = { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 };
+  // Style pour les vidéos avec background placeholder pour améliorer le LCP perceptuel
+  const vStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    objectFit: 'cover',
+    zIndex: -1,
+    background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)' // Couleur sunset comme placeholder
+  };
 
   return (
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
+        {/* Vidéos optimisées pour performance : preload metadata + chargement déféré */}
         <video ref={videoA} autoPlay muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
           {!isSafari() && <source src="/videos/desert-sunset-optimized.webm" type="video/webm" />}
           <source src={videoSrc} type="video/mp4" />
