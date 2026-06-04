@@ -158,11 +158,11 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div style={{ position: 'relative', width: '100%' }}>
-        <video ref={videoA} autoPlay muted playsInline preload="auto" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
+        <video ref={videoA} autoPlay muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
           {!isSafari() && <source src="/videos/desert-sunset-optimized.webm" type="video/webm" />}
           <source src={videoSrc} type="video/mp4" />
         </video>
-        <video ref={videoB} muted playsInline preload="auto" webkit-playsinline style={{ ...vStyle, opacity: 0 }}>
+        <video ref={videoB} muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 0 }}>
           {!isSafari() && <source src="/videos/desert-sunset-optimized.webm" type="video/webm" />}
           <source src={videoSrc} type="video/mp4" />
         </video>

@@ -6,11 +6,12 @@ export default function Contact() {
   const [status, setStatus] = useState("");
   const { trackEvent } = useAnalytics();
 
-  // Chargement du script Calendly pour l'effet Popup
+  // Chargement du script Calendly pour l'effet Popup (defer pour ne pas bloquer le chargement)
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
+    script.defer = true;
     document.body.appendChild(script);
   }, []);
 
