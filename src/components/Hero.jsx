@@ -41,7 +41,7 @@ export default function Hero() {
           >
             <span style={{ color: '#f6decd', fontSize: '10px', letterSpacing: '8px', marginBottom: '8px', fontWeight: 'bold' }}>PARTICULIERS</span>
             <h2 style={{ color: 'white', fontFamily: 'serif', fontSize: 'clamp(1.4rem, 5vw, 2.4rem)', fontWeight: '300', margin: 0 }}>Formules & Sur-Mesure</h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 'clamp(12px, 3vw, 14px)', marginTop: '8px' }}>L'expertise d'un voyage unique, conçu pour vous.</p>
+            <p style={{ color: 'rgba(255,255,255,0.95)', fontSize: 'clamp(12px, 3vw, 14px)', marginTop: '8px' }}>L'expertise d'un voyage unique, conçu pour vous.</p>
         </motion.button>
 
         <Link to="/business" style={{ textDecoration: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>

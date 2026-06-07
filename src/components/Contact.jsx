@@ -18,6 +18,7 @@ export default function Contact() {
     }
   `;
   const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { trackEvent } = useAnalytics();
 
   // Script Calendly maintenant chargé globalement dans index.html avec async defer
@@ -68,6 +69,7 @@ export default function Contact() {
     const formEmail = data.get('email');
     const formName = data.get('name');
 
+    setIsLoading(true);
     try {
       const response = await fetch("https://formspree.io/f/mpqylnld", {
         method: "POST",
@@ -93,6 +95,8 @@ export default function Contact() {
       trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_ERROR, {
         error: error.message || 'unknown_error'
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -158,11 +162,24 @@ export default function Contact() {
 
               <motion.button
                 type="submit"
+                disabled={isLoading}
                 aria-label="Envoyer votre message de contact à Hiba"
-                whileHover={{ scale: 1.02, backgroundColor: "#fff", color: "#000" }}
-                style={{ width: "100%", padding: "22px", borderRadius: "50px", border: "none", background: "#f6decd", color: "#3b2a1e", fontSize: "13px", fontWeight: "bold", letterSpacing: "3px", cursor: "pointer" }}
+                whileHover={!isLoading ? { scale: 1.02, backgroundColor: "#fff", color: "#000" } : {}}
+                style={{
+                  width: "100%",
+                  padding: "22px",
+                  borderRadius: "50px",
+                  border: "none",
+                  background: isLoading ? "#e5b181" : "#f6decd",
+                  color: "#3b2a1e",
+                  fontSize: "13px",
+                  fontWeight: "bold",
+                  letterSpacing: "3px",
+                  cursor: isLoading ? "not-allowed" : "pointer",
+                  opacity: isLoading ? 0.8 : 1
+                }}
               >
-                {status === "ERROR" ? "ERREUR, RÉESSAYEZ" : "ENVOYER LE MESSAGE"}
+                {isLoading ? "ENVOI EN COURS..." : status === "ERROR" ? "ERREUR, RÉESSAYEZ" : "ENVOYER LE MESSAGE"}
               </motion.button>
             </form>
           </>

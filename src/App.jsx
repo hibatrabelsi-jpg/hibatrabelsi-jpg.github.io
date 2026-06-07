@@ -10,6 +10,7 @@ import FormuleDetail from "./components/FormuleDetail";
 import BusinessPage from "./components/BusinessPage";
 import ChatBot from "./components/ChatBot";
 import SEO from "./components/SEO";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Lazy-load Contact component pour optimiser les performances
 const Contact = lazy(() => import("./components/Contact"));
@@ -176,9 +177,10 @@ export default function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div style={{ position: 'relative', width: '100%' }}>
+    <ErrorBoundary>
+      <Router>
+        <ScrollToTop />
+        <div style={{ position: 'relative', width: '100%' }}>
         {/* Vidéos optimisées pour performance : preload metadata + chargement déféré */}
         <video ref={videoA} autoPlay muted playsInline preload="metadata" webkit-playsinline style={{ ...vStyle, opacity: 1 }}>
           {!isSafari() && <source src="/videos/desert-sunset-optimized.webm" type="video/webm" />}
@@ -191,6 +193,7 @@ export default function App() {
         <AnimatedRoutes />
         <ChatBot />
       </div>
-    </Router>
+      </Router>
+    </ErrorBoundary>
   );
 }
