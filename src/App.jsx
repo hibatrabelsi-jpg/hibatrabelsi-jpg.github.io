@@ -11,6 +11,7 @@ import BusinessPage from "./components/BusinessPage";
 import ChatBot from "./components/ChatBot";
 import SEO from "./components/SEO";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { FORMULES } from "./constants/formules";
 
 // Lazy-load Contact component pour optimiser les performances
 const Contact = lazy(() => import("./components/Contact"));
@@ -23,36 +24,19 @@ function ScrollToTop() {
   return null;
 }
 
-const detailsFormules = {
-  "guide-essentiel": {
-    titre: "Guide Essentiel",
-    prix: "109",
-    description: "Idéal pour garder la main sur ses réservations tout en ayant un expert à ses côtés.",
-    inclusions: ["Recherche d’activités", "Sélection d’adresses", "Optimisation du temps", "SAV"],
-    lienStripe: "https://buy.stripe.com/dRm9ALfDO5PU6zvcwgf3a03"
-  },
-  "evasion-express": {
-    titre: "Évasion Express",
-    prix: "139",
-    description: "Parfait pour un week-end ou city trip de 2 nuits.",
-    inclusions: ["Transport & Hébergement", "Activités", "Recommandations", "SAV"],
-    lienStripe: "https://buy.stripe.com/00waEP3V6guy6zv8g0f3a01"
-  },
-  "sejour-serenite": {
-    titre: "Séjour Sérénité",
-    prix: "239",
-    description: "Organisation complète pour les séjours de 4 à 8 nuits.",
-    inclusions: ["Transports A/R", "Hébergement & Activités", "Carte interactive", "Carnet digital", "SAV"],
-    lienStripe: "https://buy.stripe.com/6oU6oz2R2ceif61fIsf3a02"
-  },
-  "grand-voyageur": {
-    titre: "Grand Voyageur",
-    prix: "339",
-    description: "Pour les itinéraires ambitieux ou à plusieurs étapes.",
-    inclusions: ["Itinéraire structuré", "Logistique totale", "Pépites locales", "Carnet digital", "Paiement en 2x"],
-    lienStripe: "https://buy.stripe.com/8x2fZ93V69261fbcwgf3a00"
-  }
-};
+// Utiliser les formules centralisées
+const detailsFormules = Object.fromEntries(
+  Object.entries(FORMULES).map(([key, formule]) => [
+    key,
+    {
+      titre: formule.titre,
+      prix: formule.prix,
+      description: formule.description,
+      inclusions: formule.inclusions,
+      lienStripe: formule.lienStripe
+    }
+  ])
+);
 
 function AnimatedRoutes() {
   const location = useLocation();
