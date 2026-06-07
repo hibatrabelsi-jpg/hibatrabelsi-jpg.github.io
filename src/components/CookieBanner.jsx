@@ -56,37 +56,35 @@ export default function CookieBanner() {
       style={{
         position: 'fixed',
         bottom: '24px',
-        left: '24px',
         right: '24px',
-        maxWidth: '500px',
-        margin: '0 auto',
+        maxWidth: '320px',
         zIndex: 999,
-        background: 'rgba(10, 6, 4, 0.95)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderRadius: '24px',
-        border: '1px solid rgba(246, 222, 205, 0.2)',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.6)',
-        padding: '24px',
+        background: 'rgba(10, 6, 4, 0.6)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        borderRadius: '16px',
+        border: '1px solid rgba(246, 222, 205, 0.15)',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        padding: '16px',
       }}
     >
       <h3 style={{
         color: '#f6decd',
         fontFamily: 'serif',
-        fontSize: '18px',
+        fontSize: '14px',
         marginTop: 0,
-        marginBottom: '12px'
+        marginBottom: '8px'
       }}>
-        🍪 Cookies & Confidentialité
+        🍪 Cookies
       </h3>
 
       <p style={{
-        color: 'rgba(255, 255, 255, 0.9)',
-        fontSize: '14px',
-        lineHeight: '1.6',
-        marginBottom: '20px'
+        color: 'rgba(255, 255, 255, 0.8)',
+        fontSize: '12px',
+        lineHeight: '1.5',
+        marginBottom: '12px'
       }}>
-        Nous utilisons Google Analytics pour améliorer votre expérience.
+        Nous utilisons Google Analytics.
         {' '}<a href="/legal" style={{ color: '#f6decd', textDecoration: 'underline' }}>
           En savoir plus
         </a>
@@ -94,57 +92,47 @@ export default function CookieBanner() {
 
       <div style={{
         display: 'flex',
-        gap: '12px',
-        flexDirection: 'column'
+        gap: '8px',
+        flexDirection: 'row'
       }}>
         <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={handleAccept}
           style={{
             background: '#f6decd',
             color: '#3b2a1e',
             border: 'none',
-            padding: '12px 20px',
-            borderRadius: '12px',
-            fontSize: '14px',
+            padding: '8px 12px',
+            borderRadius: '8px',
+            fontSize: '11px',
             fontWeight: 'bold',
             cursor: 'pointer',
-            letterSpacing: '1px'
+            flex: 1
           }}
         >
-          ACCEPTER
+          ✓ Accepter
         </motion.button>
 
         <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={handleReject}
           style={{
             background: 'transparent',
             color: '#f6decd',
-            border: '1px solid #f6decd',
-            padding: '12px 20px',
-            borderRadius: '12px',
-            fontSize: '14px',
+            border: '1px solid rgba(246, 222, 205, 0.5)',
+            padding: '8px 12px',
+            borderRadius: '8px',
+            fontSize: '11px',
             fontWeight: 'bold',
             cursor: 'pointer',
-            letterSpacing: '1px'
+            flex: 1
           }}
         >
-          REFUSER
+          Refuser
         </motion.button>
       </div>
-
-      <p style={{
-        color: 'rgba(255, 255, 255, 0.5)',
-        fontSize: '11px',
-        marginTop: '16px',
-        marginBottom: 0,
-        textAlign: 'center'
-      }}>
-        Vous pouvez changer vos préférences n'importe quand dans les paramètres.
-      </p>
     </motion.div>
   );
 }

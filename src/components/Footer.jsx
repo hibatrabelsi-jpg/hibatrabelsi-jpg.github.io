@@ -10,9 +10,11 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: 'rgba(0, 0, 0, 0.6)',
-        borderTop: '1px solid rgba(246, 222, 205, 0.1)',
-        padding: '40px 20px',
+        background: 'rgba(0, 0, 0, 0.3)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        borderTop: '1px solid rgba(246, 222, 205, 0.08)',
+        padding: '30px 20px',
         marginTop: '100px',
       }}
     >
@@ -21,9 +23,9 @@ export default function Footer() {
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '40px',
-          marginBottom: '40px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '30px',
+          marginBottom: '30px',
         }}
       >
         {/* Brand */}
@@ -32,20 +34,20 @@ export default function Footer() {
             style={{
               color: 'white',
               fontFamily: 'serif',
-              fontSize: '20px',
-              marginBottom: '15px',
+              fontSize: '16px',
+              marginBottom: '10px',
             }}
           >
             Hiba<span style={{ color: '#f6decd' }}>Travel</span>
           </h3>
-          <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px' }}>
-            Organisation de voyages sur mesure pour particuliers et entreprises.
+          <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '12px', lineHeight: '1.4', margin: 0 }}>
+            Voyages sur mesure
           </p>
           <p
             style={{
               color: '#f6decd',
-              fontSize: '14px',
-              marginTop: '15px',
+              fontSize: '11px',
+              marginTop: '8px',
               fontWeight: 'bold',
             }}
           >
@@ -58,9 +60,10 @@ export default function Footer() {
           <h4
             style={{
               color: '#f6decd',
-              fontSize: '16px',
-              marginBottom: '15px',
+              fontSize: '13px',
+              marginBottom: '10px',
               fontWeight: 'bold',
+              margin: '0 0 10px 0'
             }}
           >
             Navigation
@@ -72,13 +75,13 @@ export default function Footer() {
               margin: 0,
             }}
           >
-            <li style={{ marginBottom: '10px' }}>
+            <li style={{ marginBottom: '6px' }}>
               <a
                 href="/#contact"
                 style={{
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: 'rgba(255, 255, 255, 0.7)',
                   textDecoration: 'none',
-                  fontSize: '14px',
+                  fontSize: '12px',
                 }}
                 onMouseEnter={(e) => (e.target.style.color = '#f6decd')}
                 onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.8)')}
@@ -86,16 +89,16 @@ export default function Footer() {
                 Contact
               </a>
             </li>
-            <li style={{ marginBottom: '10px' }}>
+            <li style={{ marginBottom: '6px' }}>
               <Link
                 to="/business"
                 style={{
                   color: 'rgba(255, 255, 255, 0.8)',
                   textDecoration: 'none',
-                  fontSize: '14px',
+                  fontSize: '12px',
                 }}
                 onMouseEnter={(e) => (e.target.style.color = '#f6decd')}
-                onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.8)')}
+                onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.7)')}
               >
                 B2B / Business
               </Link>
@@ -108,9 +111,10 @@ export default function Footer() {
           <h4
             style={{
               color: '#f6decd',
-              fontSize: '16px',
-              marginBottom: '15px',
+              fontSize: '13px',
+              marginBottom: '10px',
               fontWeight: 'bold',
+              margin: '0 0 10px 0'
             }}
           >
             Légal & Confidentialité
@@ -122,35 +126,35 @@ export default function Footer() {
               margin: 0,
             }}
           >
-            <li style={{ marginBottom: '10px' }}>
+            <li style={{ marginBottom: '6px' }}>
               <Link
                 to="/legal"
                 style={{
                   color: 'rgba(255, 255, 255, 0.8)',
                   textDecoration: 'none',
-                  fontSize: '14px',
+                  fontSize: '12px',
                 }}
                 onMouseEnter={(e) => (e.target.style.color = '#f6decd')}
-                onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.8)')}
+                onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.7)')}
               >
                 Mentions Légales
               </Link>
             </li>
-            <li style={{ marginBottom: '10px' }}>
+            <li style={{ marginBottom: '6px' }}>
               <Link
                 to="/legal"
                 style={{
                   color: 'rgba(255, 255, 255, 0.8)',
                   textDecoration: 'none',
-                  fontSize: '14px',
+                  fontSize: '12px',
                 }}
                 onMouseEnter={(e) => (e.target.style.color = '#f6decd')}
-                onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.8)')}
+                onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.7)')}
               >
                 Politique de Confidentialité
               </Link>
             </li>
-            <li style={{ marginBottom: '10px' }}>
+            <li style={{ marginBottom: '6px' }}>
               <a
                 href="#"
                 onClick={() => localStorage.removeItem('hiba_cookie_consent')}
@@ -173,18 +177,18 @@ export default function Footer() {
       {/* Copyright */}
       <div
         style={{
-          borderTop: '1px solid rgba(246, 222, 205, 0.1)',
-          paddingTop: '20px',
+          borderTop: '1px solid rgba(246, 222, 205, 0.05)',
+          paddingTop: '15px',
           textAlign: 'center',
-          color: 'rgba(255, 255, 255, 0.5)',
-          fontSize: '12px',
+          color: 'rgba(255, 255, 255, 0.4)',
+          fontSize: '11px',
         }}
       >
         <p style={{ margin: 0 }}>
-          © {currentYear} Hiba Travel Planner. Tous droits réservés.
+          © {currentYear} Hiba Travel Planner
         </p>
-        <p style={{ margin: '5px 0 0' }}>
-          Fait avec ❤️ et organisé avec passion
+        <p style={{ margin: '3px 0 0' }}>
+          Fait avec ❤️ et passion
         </p>
       </div>
     </footer>
