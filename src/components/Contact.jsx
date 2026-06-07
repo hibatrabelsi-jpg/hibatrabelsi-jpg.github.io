@@ -3,6 +3,20 @@ import { useState, useEffect } from "react";
 import { useAnalytics, ANALYTICS_EVENTS } from "../hooks/useAnalytics";
 
 export default function Contact() {
+  // Style pour rendre les placeholders lisibles et ajouter focus visible
+  const placeholderStyle = `
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7) !important;
+      opacity: 1 !important;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #f6decd !important;
+      outline-offset: 2px !important;
+    }
+  `;
   const [status, setStatus] = useState("");
   const { trackEvent } = useAnalytics();
 
@@ -83,14 +97,16 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: '120px 20px', background: 'transparent' }}>
+    <>
+      <style>{placeholderStyle}</style>
+      <section id="contact" style={{ padding: '120px 20px', background: 'transparent' }}>
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} style={cardStyle}>
         
         {status === "SUCCESS" ? (
           <div style={{ textAlign: 'center', padding: '40px' }}>
             <h2 style={{ fontFamily: 'serif', color: '#f6decd', fontSize: '3rem', ...textShadowStyle }}>Merci !</h2>
             <p style={{ color: 'white', marginTop: '20px', ...textShadowStyle }}>Votre demande a bien été transmise.</p>
-            <button onClick={() => setStatus("")} style={{ marginTop: '30px', background: 'none', border: '1px solid #f6decd', color: '#f6decd', padding: '12px 25px', borderRadius: '50px', cursor: 'pointer' }}>RETOUR</button>
+            <button aria-label="Retour au formulaire de contact" onClick={() => setStatus("")} style={{ marginTop: '30px', background: 'none', border: '1px solid #f6decd', color: '#f6decd', padding: '12px 25px', borderRadius: '50px', cursor: 'pointer' }}>RETOUR</button>
           </div>
         ) : (
           <>
@@ -103,7 +119,8 @@ export default function Contact() {
             {/* SECTION CALENDLY AVEC TON LIEN DIRECT */}
             <div style={{ marginBottom: '40px', textAlign: 'center', padding: '30px', borderRadius: '30px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(246, 222, 205, 0.3)' }}>
                <p style={{ color: 'white', fontSize: '17px', marginBottom: '15px', letterSpacing: '1px', ...textShadowStyle }}>Vous préférez un échange direct ?</p>
-               <motion.button 
+               <motion.button
+                aria-label="Réserver un appel découverte gratuit avec Hiba"
                 onClick={openCalendly}
                 whileHover={{ scale: 1.05, color: "#fff" }}
                 style={{ background: 'none', border: 'none', color: '#f6decd', cursor: 'pointer', fontSize: '14px', fontWeight: 'bold', letterSpacing: '2px', textDecoration: 'underline' }}
@@ -120,19 +137,29 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit}>
               <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                <input type="text" name="nom" placeholder="Nom complet" required style={{ ...inputStyle, flex: '1 1 300px' }} />
-                <input type="email" name="email" placeholder="Email" required style={{ ...inputStyle, flex: '1 1 300px' }} />
+                <div style={{ flex: '1 1 300px' }}>
+                  <label htmlFor="nom" style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>Nom complet</label>
+                  <input id="nom" type="text" name="nom" placeholder="Votre nom" required style={{ ...inputStyle, flex: '1 1 100%' }} />
+                </div>
+                <div style={{ flex: '1 1 300px' }}>
+                  <label htmlFor="email" style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>Email</label>
+                  <input id="email" type="email" name="email" placeholder="votre@email.com" required style={{ ...inputStyle, flex: '1 1 100%' }} />
+                </div>
               </div>
-              <textarea name="message" placeholder="Dites-moi en plus sur votre projet..." rows="4" required style={{ ...inputStyle, resize: 'none', fontFamily: 'inherit' }} />
+              <div>
+                <label htmlFor="message" style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>Message</label>
+                <textarea id="message" name="message" placeholder="Dites-moi en plus sur votre projet..." rows="4" required style={{ ...inputStyle, resize: 'none', fontFamily: 'inherit' }} />
+              </div>
               
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '30px' }}>
                 <input type="checkbox" id="rgpd" required style={{ marginTop: '5px', accentColor: '#f6decd' }} />
                 <label htmlFor="rgpd" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '13px', cursor: 'pointer', ...textShadowStyle }}>J'accepte d'être recontacté pour ma demande de voyage.</label>
               </div>
 
-              <motion.button 
-                type="submit" 
-                whileHover={{ scale: 1.02, backgroundColor: "#fff", color: "#000" }} 
+              <motion.button
+                type="submit"
+                aria-label="Envoyer votre message de contact à Hiba"
+                whileHover={{ scale: 1.02, backgroundColor: "#fff", color: "#000" }}
                 style={{ width: "100%", padding: "22px", borderRadius: "50px", border: "none", background: "#f6decd", color: "#3b2a1e", fontSize: "13px", fontWeight: "bold", letterSpacing: "3px", cursor: "pointer" }}
               >
                 {status === "ERROR" ? "ERREUR, RÉESSAYEZ" : "ENVOYER LE MESSAGE"}
@@ -142,5 +169,6 @@ export default function Contact() {
         )}
       </motion.div>
     </section>
+    </>
   );
 }

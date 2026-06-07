@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <nav style={{
+    <nav aria-label="Navigation principale" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       padding: '40px 60px',

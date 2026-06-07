@@ -68,14 +68,16 @@ function AnimatedRoutes() {
               keywords="voyage sur mesure, travel planner, organisation voyage, séjour vacances, weekend trip, agence voyage"
               url="https://hibatravel.com"
             />
-            <Hero />
-            <Features />
-            <B2B />
-            <Testimonials />
-            <About />
-            <Suspense fallback={<div style={{ height: '600px' }} />}>
-              <Contact />
-            </Suspense>
+            <main>
+              <Hero />
+              <Features />
+              <B2B />
+              <Testimonials />
+              <About />
+              <Suspense fallback={<div style={{ height: '600px' }} />}>
+                <Contact />
+              </Suspense>
+            </main>
           </motion.div>
         } />
 
@@ -87,7 +89,9 @@ function AnimatedRoutes() {
               keywords="voyage entreprise, séminaire, incentive, voyage B2B, team building"
               url="https://hibatravel.com/business"
             />
-            <BusinessPage />
+            <main>
+              <BusinessPage />
+            </main>
           </motion.div>
         } />
 

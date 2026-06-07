@@ -32,7 +32,9 @@ export default function Hero() {
       </motion.div>
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-        <motion.div
+        <motion.button
+            type="button"
+            aria-label="Voir les formules particuliers"
             whileHover={{ scale: 1.02, backgroundColor: "rgba(0, 0, 0, 0.4)" }}
             style={{ ...cardStyle, width: '85%', maxWidth: '900px', display: 'flex', justifyContent: 'center' }}
             onClick={() => document.getElementById('formules')?.scrollIntoView({ behavior: 'smooth' })}
@@ -40,7 +42,7 @@ export default function Hero() {
             <span style={{ color: '#f6decd', fontSize: '10px', letterSpacing: '8px', marginBottom: '8px', fontWeight: 'bold' }}>PARTICULIERS</span>
             <h2 style={{ color: 'white', fontFamily: 'serif', fontSize: 'clamp(1.4rem, 5vw, 2.4rem)', fontWeight: '300', margin: 0 }}>Formules & Sur-Mesure</h2>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 'clamp(12px, 3vw, 14px)', marginTop: '8px' }}>L'expertise d'un voyage unique, conçu pour vous.</p>
-        </motion.div>
+        </motion.button>
 
         <Link to="/business" style={{ textDecoration: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>
             <motion.div whileHover={{ scale: 1.02, backgroundColor: "rgba(0, 0, 0, 0.4)" }} style={{ ...cardStyle, border: "1px solid rgba(246, 222, 205, 0.1)" }}>

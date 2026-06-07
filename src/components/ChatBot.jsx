@@ -162,6 +162,8 @@ export default function ChatBot() {
     <>
       {/* Bouton d'ouverture */}
       <motion.button
+        aria-label={open ? "Fermer l'assistant Hiba" : "Ouvrir l'assistant Hiba"}
+        aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
@@ -246,6 +248,7 @@ export default function ChatBot() {
                 {currentOptions.map((opt, i) => (
                   <motion.button
                     key={i}
+                    aria-label={opt.label}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleOption(opt)}
