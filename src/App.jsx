@@ -68,7 +68,7 @@ function AnimatedRoutes() {
               keywords="voyage sur mesure, travel planner, organisation voyage, séjour vacances, weekend trip, agence voyage"
               url="https://hibatravel.com"
             />
-            <main>
+            <main id="main-content">
               <Hero />
               <Features />
               <B2B />

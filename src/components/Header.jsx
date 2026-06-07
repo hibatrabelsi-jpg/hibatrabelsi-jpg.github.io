@@ -1,6 +1,25 @@
 export default function Header() {
   return (
-    <nav aria-label="Navigation principale" style={{
+    <>
+      <a
+        href="#main-content"
+        style={{
+          position: 'absolute',
+          top: '-40px',
+          left: '0',
+          background: '#f6decd',
+          color: '#3b2a1e',
+          padding: '8px 16px',
+          zIndex: 10000,
+          fontSize: '14px',
+          fontWeight: 'bold'
+        }}
+        onFocus={(e) => e.target.style.top = '0'}
+        onBlur={(e) => e.target.style.top = '-40px'}
+      >
+        Aller au contenu principal
+      </a>
+      <nav aria-label="Navigation principale" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       padding: '40px 60px',
@@ -30,5 +49,6 @@ export default function Header() {
         CONTACT
       </a>
     </nav>
+    </>
   );
 }
