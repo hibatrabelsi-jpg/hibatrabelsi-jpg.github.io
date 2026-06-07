@@ -37,14 +37,14 @@ export default function Testimonials() {
         </h2>
         
         <p style={{
-          color: '#f6decd',
+          color: '#ffffff',
           letterSpacing: '3px',
           fontSize: '16px',
           fontWeight: 'bold',
           marginTop: '15px',
-          textShadow: '2px 2px 10px rgba(0,0,0,1)'
+          textShadow: '0 2px 8px rgba(0,0,0,0.8)'
         }}>
-          • • • • • PLUS DE 10 AVIS GOOGLE
+          <span aria-hidden="true">• • • • • </span>PLUS DE 10 AVIS GOOGLE
         </p>
       </div>
 

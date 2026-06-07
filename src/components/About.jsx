@@ -106,12 +106,12 @@ export default function About() {
 
             <div style={{ marginTop: '50px', display: 'flex', gap: '50px', alignItems: 'center' }}>
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: '45px', fontFamily: 'serif', color: '#e5b181', margin: 0, lineHeight: '1' }}>∞</p>
+                <p aria-hidden="true" style={{ fontSize: '45px', fontFamily: 'serif', color: '#e5b181', margin: 0, lineHeight: '1' }}>∞</p>
                 <p style={{ fontSize: '10px', opacity: 0.6, letterSpacing: '2px', fontWeight: 'bold' }}>PASSION</p>
               </div>
-              <div style={{ width: '1px', height: '40px', background: 'rgba(255, 255, 255, 0.1)' }}></div>
+              <div aria-hidden="true" style={{ width: '1px', height: '40px', background: 'rgba(255, 255, 255, 0.1)' }}></div>
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: '35px', fontFamily: 'serif', color: '#e5b181', margin: 0, lineHeight: '1' }}>0</p>
+                <p aria-hidden="true" style={{ fontSize: '35px', fontFamily: 'serif', color: '#e5b181', margin: 0, lineHeight: '1' }}>0</p>
                 <p style={{ fontSize: '10px', opacity: 0.6, letterSpacing: '2px', fontWeight: 'bold' }}>STRESS</p>
               </div>
             </div>
