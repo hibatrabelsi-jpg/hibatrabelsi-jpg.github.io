@@ -11,6 +11,9 @@ import BusinessPage from "./components/BusinessPage";
 import ChatBot from "./components/ChatBot";
 import SEO from "./components/SEO";
 import ErrorBoundary from "./components/ErrorBoundary";
+import Legal from "./components/Legal";
+import CookieBanner from "./components/CookieBanner";
+import Footer from "./components/Footer";
 import { FORMULES } from "./constants/formules";
 
 // Lazy-load Contact component pour optimiser les performances
@@ -77,6 +80,18 @@ function AnimatedRoutes() {
             <main>
               <BusinessPage />
             </main>
+          </motion.div>
+        } />
+
+        <Route path="/legal" element={
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }}>
+            <SEO
+              title="Mentions Légales & Politique de Confidentialité — Hiba Travel Planner"
+              description="Mentions légales, politique de confidentialité RGPD et conditions d'utilisation de Hiba Travel Planner."
+              keywords="mentions légales, politique confidentialité, RGPD, conditions utilisation"
+              url="https://hibatravel.com/legal"
+            />
+            <Legal />
           </motion.div>
         } />
 
@@ -175,7 +190,9 @@ export default function App() {
           <source src={videoSrc} type="video/mp4" />
         </video>
         <AnimatedRoutes />
+        <Footer />
         <ChatBot />
+        <CookieBanner />
       </div>
       </Router>
     </ErrorBoundary>
