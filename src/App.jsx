@@ -14,6 +14,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Legal from "./components/Legal";
 import CookieBanner from "./components/CookieBanner";
 import Footer from "./components/Footer";
+import DemoMode from "./components/DemoMode";
 import { FORMULES } from "./constants/formules";
 
 // Lazy-load Contact component pour optimiser les performances
@@ -193,6 +194,7 @@ export default function App() {
         <Footer />
         <ChatBot />
         <CookieBanner />
+        <DemoMode />
       </div>
       </Router>
     </ErrorBoundary>
