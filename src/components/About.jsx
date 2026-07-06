@@ -115,23 +115,15 @@ export default function About() {
                 <p style={{ fontSize: '10px', opacity: 1, letterSpacing: '2px', fontWeight: 'bold' }}>STRESS</p>
               </div>
 
-              {/* Signature : logo sur plaque beige, comme un cachet en fin de lettre */}
+              {/* Signature : logo en filigrane beige, comme un cachet en fin de lettre */}
               <div style={{ marginLeft: 'auto' }}>
-                <div
-                  style={{
-                    background: 'rgba(246, 222, 205, 0.92)',
-                    borderRadius: '18px',
-                    padding: '12px 18px',
-                  }}
-                >
-                  <img
-                    src="/logo.png"
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    style={{ height: '95px', width: 'auto', display: 'block' }}
-                  />
-                </div>
+                <img
+                  src="/logo-light.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  style={{ height: '110px', width: 'auto', display: 'block', opacity: 0.85 }}
+                />
               </div>
             </div>
           </div>

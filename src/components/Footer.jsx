@@ -176,21 +176,12 @@ export default function Footer() {
 
       {/* Logo signature */}
       <div style={{ textAlign: 'center', marginBottom: '25px' }}>
-        <div
-          style={{
-            display: 'inline-block',
-            background: 'rgba(246, 222, 205, 0.92)',
-            borderRadius: '22px',
-            padding: '16px 24px',
-          }}
-        >
-          <img
-            src="/logo.png"
-            alt="Logo Hiba Travel Planner — montgolfière au-dessus des dunes du désert"
-            loading="lazy"
-            style={{ height: '120px', width: 'auto', display: 'block' }}
-          />
-        </div>
+        <img
+          src="/logo-light.png"
+          alt="Logo Hiba Travel Planner — montgolfière au-dessus des dunes du désert"
+          loading="lazy"
+          style={{ height: '130px', width: 'auto', display: 'inline-block', opacity: 0.9 }}
+        />
       </div>
 
       {/* Copyright */}
