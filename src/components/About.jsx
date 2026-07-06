@@ -104,7 +104,7 @@ export default function About() {
               </p>
             </div>
 
-            <div style={{ marginTop: '50px', display: 'flex', gap: '50px', alignItems: 'center' }}>
+            <div style={{ marginTop: '50px', display: 'flex', gap: '50px', alignItems: 'center', flexWrap: 'wrap' }}>
               <div style={{ textAlign: 'center' }}>
                 <p aria-hidden="true" style={{ fontSize: '45px', fontFamily: 'serif', color: '#e5b181', margin: 0, lineHeight: '1' }}>∞</p>
                 <p style={{ fontSize: '10px', opacity: 1, letterSpacing: '2px', fontWeight: 'bold' }}>PASSION</p>
@@ -113,6 +113,25 @@ export default function About() {
               <div style={{ textAlign: 'center' }}>
                 <p aria-hidden="true" style={{ fontSize: '35px', fontFamily: 'serif', color: '#e5b181', margin: 0, lineHeight: '1' }}>0</p>
                 <p style={{ fontSize: '10px', opacity: 1, letterSpacing: '2px', fontWeight: 'bold' }}>STRESS</p>
+              </div>
+
+              {/* Signature : logo sur plaque beige, comme un cachet en fin de lettre */}
+              <div style={{ marginLeft: 'auto' }}>
+                <div
+                  style={{
+                    background: 'rgba(246, 222, 205, 0.92)',
+                    borderRadius: '18px',
+                    padding: '12px 18px',
+                  }}
+                >
+                  <img
+                    src="/logo.png"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    style={{ height: '95px', width: 'auto', display: 'block' }}
+                  />
+                </div>
               </div>
             </div>
           </div>

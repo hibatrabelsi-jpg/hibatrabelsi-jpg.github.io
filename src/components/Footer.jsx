@@ -174,6 +174,25 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Logo signature */}
+      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
+        <div
+          style={{
+            display: 'inline-block',
+            background: 'rgba(246, 222, 205, 0.92)',
+            borderRadius: '22px',
+            padding: '16px 24px',
+          }}
+        >
+          <img
+            src="/logo.png"
+            alt="Logo Hiba Travel Planner — montgolfière au-dessus des dunes du désert"
+            loading="lazy"
+            style={{ height: '120px', width: 'auto', display: 'block' }}
+          />
+        </div>
+      </div>
+
       {/* Copyright */}
       <div
         style={{
