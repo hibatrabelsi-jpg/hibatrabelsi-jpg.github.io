@@ -172,16 +172,16 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </div>
 
-      {/* Logo signature */}
-      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
-        <img
-          src="/logo-light.png"
-          alt="Logo Hiba Travel Planner — montgolfière au-dessus des dunes du désert"
-          loading="lazy"
-          style={{ height: '130px', width: 'auto', display: 'inline-block', opacity: 0.9 }}
-        />
+        {/* Logo signature — 4e colonne, aligné à droite sur desktop */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img
+            src="/logo-light.png"
+            alt="Logo Hiba Travel Planner — montgolfière au-dessus des dunes du désert"
+            loading="lazy"
+            style={{ height: '170px', width: 'auto', display: 'block', opacity: 0.9 }}
+          />
+        </div>
       </div>
 
       {/* Copyright */}
