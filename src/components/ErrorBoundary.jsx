@@ -67,7 +67,7 @@ export default class ErrorBoundary extends Component {
               RAFRAÎCHIR LA PAGE
             </button>
           </div>
-          {process.env.NODE_ENV === 'development' && this.state.error && (
+          {import.meta.env.DEV && this.state.error && (
             <details style={{ marginTop: '30px', color: '#ff6b6b' }}>
               <summary style={{ cursor: 'pointer' }}>Error Details (Dev Only)</summary>
               <pre style={{ textAlign: 'left', fontSize: '12px' }}>

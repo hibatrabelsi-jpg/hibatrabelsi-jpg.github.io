@@ -6,24 +6,14 @@ import { motion } from 'framer-motion';
  * Asks for user consent before loading Google Analytics
  * Stores preference in localStorage for 13 months
  */
+const COOKIE_NAME = 'hiba_cookie_consent';
+const COOKIE_EXPIRY_DAYS = 13 * 30; // 13 months
+
 export default function CookieBanner() {
-  const [showBanner, setShowBanner] = useState(false);
-  const COOKIE_NAME = 'hiba_cookie_consent';
-  const COOKIE_EXPIRY_DAYS = 13 * 30; // 13 months
-
-  useEffect(() => {
-    // Check if user already consented
-    const consentGiven = localStorage.getItem(COOKIE_NAME);
-
-    if (!consentGiven) {
-      setShowBanner(true);
-    } else {
-      // If consent was given, ensure GA4 is loaded
-      if (consentGiven === 'accepted') {
-        enableAnalytics();
-      }
-    }
-  }, []);
+  // Afficher la bannière uniquement si aucun consentement n'est enregistré
+  const [showBanner, setShowBanner] = useState(
+    () => !localStorage.getItem(COOKIE_NAME)
+  );
 
   const enableAnalytics = () => {
     // Load GA4 if not already loaded
@@ -33,6 +23,13 @@ export default function CookieBanner() {
       });
     }
   };
+
+  useEffect(() => {
+    // If consent was given, ensure GA4 is loaded
+    if (localStorage.getItem(COOKIE_NAME) === 'accepted') {
+      enableAnalytics();
+    }
+  }, []);
 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_NAME, 'accepted');

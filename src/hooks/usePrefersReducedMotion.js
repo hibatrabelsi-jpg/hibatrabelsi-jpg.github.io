@@ -9,12 +9,13 @@ import { useEffect, useState } from 'react';
  * @returns {boolean} true si l'utilisateur préfère réduire les animations
  */
 export const usePrefersReducedMotion = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  // Lire la préférence système dès l'initialisation (évite un re-render en cascade)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   useEffect(() => {
-    // Vérifier la préférence système
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
 
     // Écouter les changements (si l'utilisateur change les paramètres)
     const handleChange = (e) => {

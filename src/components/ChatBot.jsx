@@ -100,14 +100,15 @@ export default function ChatBot() {
   const navigate = useNavigate();
   const { trackEvent } = useAnalytics();
 
-  useEffect(() => {
-    if (open && !started) {
+  const handleToggle = () => {
+    if (!open && !started) {
       setStarted(true);
       setMessages([{ from: "bot", text: FLOWS.start.bot }]);
       setCurrentFlow("start");
       trackEvent(ANALYTICS_EVENTS.CHATBOT_OPEN);
     }
-  }, [open, started, trackEvent]);
+    setOpen((o) => !o);
+  };
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -164,7 +165,7 @@ export default function ChatBot() {
       <motion.button
         aria-label={open ? "Fermer l'assistant Hiba" : "Ouvrir l'assistant Hiba"}
         aria-expanded={open}
-        onClick={() => setOpen((o) => !o)}
+        onClick={handleToggle}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         style={{

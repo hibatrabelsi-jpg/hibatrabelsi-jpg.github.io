@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAnalytics, ANALYTICS_EVENTS } from "../hooks/useAnalytics";
 
 export default function Contact() {
@@ -67,7 +67,6 @@ export default function Contact() {
     const form = e.target;
     const data = new FormData(form);
     const formEmail = data.get('email');
-    const formName = data.get('name');
 
     setIsLoading(true);
     try {

@@ -9,19 +9,11 @@ import { useLocation } from 'react-router-dom';
  * Example: http://localhost:5174/?demo=true
  */
 export default function DemoMode() {
-  const [isDemoMode, setIsDemoMode] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    // Check if demo mode is enabled via URL
-    const params = new URLSearchParams(location.search);
-    const demoParam = params.get('demo');
-
-    if (demoParam === 'true') {
-      setIsDemoMode(true);
-    }
-  }, [location.search]);
+  // Mode démo dérivé directement de l'URL (?demo=true) — pas besoin d'un state
+  const isDemoMode = new URLSearchParams(location.search).get('demo') === 'true';
 
   useEffect(() => {
     if (!isDemoMode || !isScrolling) return;
