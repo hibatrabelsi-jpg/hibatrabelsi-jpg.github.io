@@ -46,7 +46,7 @@
 1. Ouvre Safari ou Chrome sur ton téléphone
 
 2. Va sur: http://localhost:5174/?demo=true
-   (Ou: hibatravel.com?demo=true si en production)
+   (Ou: hibatravelplanner.com?demo=true si en production)
 
 3. Fullscreen le navigateur (swipe jusqu'en bas du navigateur)
 
@@ -152,7 +152,7 @@ STEP 4: Add Text Overlays
     - "4 Formules Pour VOUS"
     - "De 109€"
     - "+10 avis ⭐⭐⭐⭐⭐"
-    - "hibatravel.com"
+    - "hibatravelplanner.com"
 
 STEP 5: Transitions
 ├─ Between clips: Simple cut ou fade

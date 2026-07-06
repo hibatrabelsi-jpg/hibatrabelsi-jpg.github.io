@@ -5,7 +5,7 @@ Disallow: /admin
 Disallow: /.env
 
 # Sitemap
-Sitemap: https://hibatravel.com/sitemap.xml
+Sitemap: https://hibatravelplanner.com/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1

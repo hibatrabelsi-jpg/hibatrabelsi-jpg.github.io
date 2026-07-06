@@ -45,7 +45,7 @@ export default function Legal() {
           <p style={textStyle}>
             <strong>Hiba Travel Planner</strong><br/>
             Email: hibatravelplanner@gmail.com<br/>
-            Domaine: hibatravel.com
+            Domaine: hibatravelplanner.com
           </p>
 
           <h3 style={{ color: '#f6decd', marginTop: '30px', fontSize: '1.2rem' }}>Statut juridique</h3>

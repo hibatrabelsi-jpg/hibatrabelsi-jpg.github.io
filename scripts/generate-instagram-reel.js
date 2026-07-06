@@ -43,7 +43,7 @@ const TEXT_OVERLAYS = [
   { time: 26, text: "Prêt(e) à\npartir?", duration: 2 },
   { time: 28, text: "30 min\nGRATUIT", duration: 2 },
   { time: 30, text: "Appel\ndécouverte", duration: 3 },
-  { time: 33, text: "hibatravel.com", duration: 27 },
+  { time: 33, text: "hibatravelplanner.com", duration: 27 },
 ];
 
 async function generateReel() {

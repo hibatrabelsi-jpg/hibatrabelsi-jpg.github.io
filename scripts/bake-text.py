@@ -160,7 +160,7 @@ CONFIGS = {
             {"t": (18, 22),"eyebrow": "À PARTIR DE", "text": "109€", "size": 128, "position": "top", "accent": True, "scrim": "top"},
             {"t": (24, 28),"text": "+10 AVIS GOOGLE\n★★★★★", "size": 78, "position": "top", "color": BEIGE, "scrim": "top"},
             {"t": (30, 34),"text": "100%\nPERSONNALISÉ", "size": 84, "position": "top", "scrim": "top"},
-            {"t": (38, 60),"eyebrow": "LIEN EN BIO", "text": "hibatravel.com", "size": 84, "position": "bottom", "color": BEIGE, "accent": True, "scrim": "bottom"},
+            {"t": (38, 60),"eyebrow": "LIEN EN BIO", "text": "hibatravelplanner.com", "size": 84, "position": "bottom", "color": BEIGE, "accent": True, "scrim": "bottom"},
         ],
     },
     "linkedin": {
@@ -174,7 +174,7 @@ CONFIGS = {
             {"t": (13, 18),"text": "PARTICULIERS\n& ENTREPRISES", "size": 78, "position": "top", "scrim": "top"},
             {"t": (20, 25),"text": "LOGISTIQUE\n100% MANAGÉE", "size": 80, "position": "top", "scrim": "top"},
             {"t": (27, 32),"text": "+10 AVIS GOOGLE\n★★★★★", "size": 76, "position": "top", "color": BEIGE, "scrim": "top"},
-            {"t": (35, 45),"eyebrow": "DÉCOUVREZ LE SITE", "text": "hibatravel.com", "size": 82, "position": "bottom", "color": BEIGE, "accent": True, "scrim": "bottom"},
+            {"t": (35, 45),"eyebrow": "DÉCOUVREZ LE SITE", "text": "hibatravelplanner.com", "size": 82, "position": "bottom", "color": BEIGE, "accent": True, "scrim": "bottom"},
         ],
     },
 }

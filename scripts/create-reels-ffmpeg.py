@@ -31,7 +31,7 @@ INSTAGRAM_CONFIG = {
         {'time': 10, 'duration': 5, 'text': "De 109€\\nà l'infini", 'fontsize': 85},
         {'time': 18, 'duration': 4, 'text': "+10 avis\\n⭐⭐⭐⭐⭐", 'fontsize': 75},
         {'time': 25, 'duration': 5, 'text': "Prêt(e) à\\npartir?", 'fontsize': 95},
-        {'time': 40, 'duration': 20, 'text': "hibatravel.com", 'fontsize': 75},
+        {'time': 40, 'duration': 20, 'text': "hibatravelplanner.com", 'fontsize': 75},
     ]
 }
 

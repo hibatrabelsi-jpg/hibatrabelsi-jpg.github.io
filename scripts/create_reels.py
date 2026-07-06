@@ -107,7 +107,7 @@ class ReelGenerator:
                 (10, 15, "De 109€\nà l'infini", 70),
                 (18, 22, "+10 avis\n⭐⭐⭐⭐⭐", 60),
                 (25, 30, "Prêt(e) à\npartir?", 75),
-                (40, 60, "hibatravel.com", 60),
+                (40, 60, "hibatravelplanner.com", 60),
             ]
         else:  # LinkedIn
             overlays = [

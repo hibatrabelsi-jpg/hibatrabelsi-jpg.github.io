@@ -5,15 +5,15 @@ export default function SEO({
   description = "Organisation de voyages sur mesure pour particuliers et entreprises. Hiba planifie vos rêves de voyage : séjours sérénité, week-ends express, grands voyages ou projets sur mesure.",
   keywords = "voyage sur mesure, organisation voyage, travel planner, séjour vacances, weekend trip",
   image = "/og-image.jpg",
-  url = "https://hibatravel.com",
+  url = "https://hibatravelplanner.com",
   type = "website"
 }) {
   const schemaOrganization = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Hiba Travel Planner",
-    "url": "https://hibatravel.com",
-    "logo": "https://hibatravel.com/logo.png",
+    "url": "https://hibatravelplanner.com",
+    "logo": "https://hibatravelplanner.com/favicon-512.png",
     "description": "Organisation de voyages sur mesure pour particuliers et entreprises",
     "telephone": "+33647597144",
     "address": {

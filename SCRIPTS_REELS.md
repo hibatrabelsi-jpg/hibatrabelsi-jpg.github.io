@@ -50,7 +50,7 @@
         | Zoom out slowly                   | "L'Évasion. Redéfinie."
         |                                   | 
         |                                   | 🔗 Link in bio
-        |                                   | hibatravel.com
+        |                                   | hibatravelplanner.com
 ```
 
 **HASHTAGS:** #TravelPlanner #VoyageSurMesure #Luxe #TravelBlogger #EvasionRedefinied #VoyageUnique #Wanderlust #TravelInspo
@@ -96,7 +96,7 @@
 
 16-18s  | CTA Screen                        | "📅 30 min - Gratuit"
         | Calendly button                   | "Appel découverte"
-        |                                   | "hibatravel.com/business"
+        |                                   | "hibatravelplanner.com/business"
 ```
 
 **TEXT/BIO:**
@@ -107,7 +107,7 @@
 🎯 Logistique totale • Expertise locale
 
 📞 Appel découverte gratuit de 30 min
-🔗 hibatravel.com
+🔗 hibatravelplanner.com
 ```
 
 **HASHTAGS:** #TravelPlanner #VoyageEntreprise #Séminaire #TeamBuilding #CorporateEvents #BusinessTravel #EVJF #VoyageGroupe #OrganisationVoyage
@@ -224,7 +224,7 @@ Hiba Travel Planner organise VOS voyages sur mesure.
 
 Prêt(e)? 
 
-🔗 hibatravel.com
+🔗 hibatravelplanner.com
 📞 30 min gratuit
 
 #VoyageSurMesure #Luxe #TravelPlanner #WanderlustTravel
@@ -251,7 +251,7 @@ Résultats:
 
 📅 Appel découverte gratuit 30 min
 📧 hibatravelplanner@gmail.com
-🔗 hibatravel.com
+🔗 hibatravelplanner.com
 
 #VoyageProfessionnel #Séminaire #CorporateEvents #TeamBuilding
 ```

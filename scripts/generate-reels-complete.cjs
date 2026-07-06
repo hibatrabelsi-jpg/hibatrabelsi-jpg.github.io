@@ -182,7 +182,7 @@ function addTextOverlays(configType, videoPath) {
         { time: 10, duration: 5, text: "De 109€\\nà l'infini", fontsize: 80 },
         { time: 18, duration: 4, text: "+10 avis\\n⭐⭐⭐⭐⭐", fontsize: 70 },
         { time: 25, duration: 5, text: "Prêt(e) à\\npartir?", fontsize: 85 },
-        { time: 40, duration: 20, text: "hibatravel.com", fontsize: 70 },
+        { time: 40, duration: 20, text: "hibatravelplanner.com", fontsize: 70 },
       ]
     : [
         { time: 0, duration: 3, text: "Organisation de\\nvoyages sur mesure", fontsize: 75 },

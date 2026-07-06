@@ -1,6 +1,6 @@
 # Hiba Travel Planner — Site vitrine
 
-Site professionnel de travel planning (hibatravel.com), en français. One-page marketing + pages formules, B2B et légales.
+Site professionnel de travel planning (hibatravelplanner.com), en français. One-page marketing + pages formules, B2B et légales.
 
 ## Stack
 

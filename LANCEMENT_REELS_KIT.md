@@ -1,6 +1,6 @@
 # 🚀 KIT LANCEMENT — Reels Annonce du Site Hiba Travel Planner
 
-> Objectif : annoncer le lancement de **hibatravel.com** et générer des clics.
+> Objectif : annoncer le lancement de **hibatravelplanner.com** et générer des clics.
 > Format : Instagram Reel (30-40s) + LinkedIn Video (30-40s)
 > Base footage : le scroll fluide du site (déjà généré)
 > Ingrédient manquant : 2 clips selfie de Hiba (intro + outro)
@@ -113,7 +113,7 @@ l'endroit où tes prochains voyages prennent vie ✨
 Alors… où rêves-tu de partir ? 👇
 Dis-le moi en commentaire 🌅
 
-🔗 Lien en bio → hibatravel.com
+🔗 Lien en bio → hibatravelplanner.com
 
 .
 .
@@ -124,7 +124,7 @@ Dis-le moi en commentaire 🌅
 ```
 
 > ⚠️ **Action après publication** : épingle un commentaire avec
-> `👉 C'est par ici : hibatravel.com` (les liens en commentaire sont cliquables-copiables)
+> `👉 C'est par ici : hibatravelplanner.com` (les liens en commentaire sont cliquables-copiables)
 
 ---
 
@@ -152,14 +152,14 @@ Pourquoi me faire confiance :
 
 📅 Réservez votre appel découverte gratuit de 30 minutes.
 
-👉 Découvrez le site : hibatravel.com
+👉 Découvrez le site : hibatravelplanner.com
 📧 hibatravelplanner@gmail.com
 
 #VoyageProfessionnel #Séminaire #TeamBuilding #CorporateTravel
 #OrganisationVoyage #TravelPlanner #Entrepreneuriat #Lancement
 ```
 
-> ⚠️ **Astuce reach LinkedIn** : mets le lien `hibatravel.com` dans le **1er commentaire**
+> ⚠️ **Astuce reach LinkedIn** : mets le lien `hibatravelplanner.com` dans le **1er commentaire**
 > plutôt que dans le post (LinkedIn réduit la portée des posts avec lien externe).
 
 ---
@@ -174,7 +174,7 @@ Pourquoi me faire confiance :
 □ Sous-titres auto activés
 □ Réel < 35 secondes
 □ Export 1080p / 30fps
-□ Bio Instagram à jour avec hibatravel.com
+□ Bio Instagram à jour avec hibatravelplanner.com
 □ Caption copiée + hashtags
 □ Commentaire CTA prêt à épingler
 □ (LinkedIn) lien dans le 1er commentaire

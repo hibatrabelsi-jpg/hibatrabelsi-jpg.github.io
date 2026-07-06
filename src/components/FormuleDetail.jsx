@@ -34,7 +34,7 @@ export default function FormuleDetail({ titre, prix, description, inclusions, li
         title={`${titre} - Hiba Travel Planner`}
         description={description}
         keywords={`${titre}, voyage, ${prix}`}
-        url={`https://hibatravel.com/formule/${formuleId}`}
+        url={`https://hibatravelplanner.com/formule/${formuleId}`}
         type="Product"
       />
       <div style={containerStyle}>

@@ -55,7 +55,7 @@ function AnimatedRoutes() {
               title="Hiba Travel Planner — L'Évasion Redéfinie"
               description="Organisation de voyages sur mesure pour particuliers et entreprises. Séjours sérénité, week-ends express, grands voyages ou projets sur mesure. Hiba planifie vos rêves."
               keywords="voyage sur mesure, travel planner, organisation voyage, séjour vacances, weekend trip, agence voyage"
-              url="https://hibatravel.com"
+              url="https://hibatravelplanner.com"
             />
             <main id="main-content">
               <Hero />
@@ -76,7 +76,7 @@ function AnimatedRoutes() {
               title="Hiba Travel Planner B2B — Voyages d'entreprise sur mesure"
               description="Solutions de voyages d'entreprise, séminaires et incentives. Hiba organise les déplacements professionnels et événements d'équipe pour maximiser l'impact et le bien-être."
               keywords="voyage entreprise, séminaire, incentive, voyage B2B, team building"
-              url="https://hibatravel.com/business"
+              url="https://hibatravelplanner.com/business"
             />
             <main>
               <BusinessPage />
@@ -90,7 +90,7 @@ function AnimatedRoutes() {
               title="Mentions Légales & Politique de Confidentialité — Hiba Travel Planner"
               description="Mentions légales, politique de confidentialité RGPD et conditions d'utilisation de Hiba Travel Planner."
               keywords="mentions légales, politique confidentialité, RGPD, conditions utilisation"
-              url="https://hibatravel.com/legal"
+              url="https://hibatravelplanner.com/legal"
             />
             <Legal />
           </motion.div>

@@ -13,11 +13,11 @@ export const generateServiceSchema = (formule) => ({
   description: formule.description,
   price: formule.prix,
   priceCurrency: 'EUR',
-  url: `https://hibatravel.com/formule/${formule.id}`,
+  url: `https://hibatravelplanner.com/formule/${formule.id}`,
   provider: {
     '@type': 'Organization',
     name: 'Hiba Travel Planner',
-    url: 'https://hibatravel.com',
+    url: 'https://hibatravelplanner.com',
   },
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -50,8 +50,8 @@ export const generateOrganizationSchema = () => ({
   '@type': 'LocalBusiness',
   name: 'Hiba Travel Planner',
   description: 'Organisation de voyages sur mesure pour particuliers et entreprises',
-  url: 'https://hibatravel.com',
-  logo: 'https://hibatravel.com/og-image.jpg',
+  url: 'https://hibatravelplanner.com',
+  logo: 'https://hibatravelplanner.com/favicon-512.png',
   sameAs: [
     'https://linkedin.com/company/hiba-travel-planner',
     'https://instagram.com/hiba.travel.planner',

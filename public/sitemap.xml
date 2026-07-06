@@ -2,57 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Page d'accueil -->
   <url>
-    <loc>https://hibatravel.com/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Page Business B2B -->
   <url>
-    <loc>https://hibatravel.com/business</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/business</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Guide Essentiel -->
   <url>
-    <loc>https://hibatravel.com/formule/guide-essentiel</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/formule/guide-essentiel</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Évasion Express -->
   <url>
-    <loc>https://hibatravel.com/formule/evasion-express</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/formule/evasion-express</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Séjour Sérénité -->
   <url>
-    <loc>https://hibatravel.com/formule/sejour-serenite</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/formule/sejour-serenite</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Grand Voyageur -->
   <url>
-    <loc>https://hibatravel.com/formule/grand-voyageur</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/formule/grand-voyageur</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Sur Mesure -->
   <url>
-    <loc>https://hibatravel.com/formule/sur-mesure</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hibatravelplanner.com/formule/sur-mesure</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <!-- Page Mentions légales -->
+  <url>
+    <loc>https://hibatravelplanner.com/legal</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
